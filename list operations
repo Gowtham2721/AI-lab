@@ -1,0 +1,36 @@
+l=[]
+n=int(input('enter no of elements in list = '))
+for i in range(n):
+    l.append(int(input()))
+print(f'list is {l}')
+print(f'length of list = {len(l)}')
+print('enter the 2 elements into the 2nd list')
+b,d=[],[]
+for i in range(2):
+    b.append(int(input()))
+print(f'list b is {b}')
+d=l+b
+print(f'after concating 2 lists = {d}')
+i=int(input('enter the index no of that element u want to enter: '))
+print(f'the element of {i} index is {d[i]}')
+print(f'new list is {d}')
+print('enter the values of indexes b/w which u want the elements')
+s,s1=map(int,input().split())
+print(f'{d[s:s1]}')
+j=int(input('enter the element that u want to enter in to exsisting list: '))
+d.extend([j])                ##extends takes single argument
+print(f'{d}')
+k,o=map(int,input('enter a elements to insert in to the list and at what index:').split())
+d.insert(k,o)           #k indicates index no and o indicates element
+print(f'{d}')
+h=int(input('enter the index no to delete that element : '))
+del d[h]
+print(d)
+print('nested list')
+d.append([1,2,3,4,5])
+print(d)
+#there are 2 types of memebership they are in, not in
+if 3 in d:
+    print('yes')
+if 3 not in d:
+    print('no')
