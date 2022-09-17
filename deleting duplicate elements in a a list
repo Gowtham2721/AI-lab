@@ -1,0 +1,6 @@
+l=[]
+n=int(input('enter no of elements in list = '))
+for i in range(n):
+    l.append(int(input()))
+print(f'list is {l}')
+print(f'new list after removing all duplicates is {set(l)}')        #set removes the duplicate elements in a list
