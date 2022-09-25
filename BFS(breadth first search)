@@ -1,10 +1,9 @@
-graph = {'A': ['B', 'C', 'E'],
-         'B': ['A', 'D', 'E'],
-         'C': ['A', 'F', 'G'],
-         'D': ['B'],
-         'E': ['A', 'B', 'D'],
-         'F': ['C'],
-         'G': ['C']}
+graph = { '5' : ['3','7'],
+  '3' : ['2', '4'],
+  '7' : ['8'],
+  '2' : [],
+  '4' : ['8'],
+  '8' : []}
 
 
 def bfs(graph, initial):
@@ -25,4 +24,9 @@ def bfs(graph, initial):
     return visited
 
 
-print(bfs(graph, 'A'))
+print(bfs(graph, '5'))
+
+'''
+output
+['5', '3', '7', '2', '4', '8']
+'''
