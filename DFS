@@ -1,5 +1,5 @@
 print("******** START **********************")
-myGraph = {
+graph = {
  '5' : ['3','7'],
   '3' : ['2', '4'],
   '7' : ['8'],
@@ -7,18 +7,19 @@ myGraph = {
   '4' : ['8'],
   '8' : []
 }
-eleVisited = set()
-def dfsImplementation(eleVisited, myGraph, myNode):
-    if myNode not in eleVisited:
-        print (myNode)
-        eleVisited.add(myNode)
-        for neighbour in myGraph[myNode]:
-            dfsImplementation(eleVisited, myGraph, neighbour)
-dfsImplementation(eleVisited, myGraph, '5')
-
+visited= set()
+def dfs(visited, graph, node):
+    if node not in visited:
+        print (node)
+        visited.add(node)
+        neighbour=graph[node]
+        for n in neighbour:
+            dfs(visited, graph, n)
+dfs(visited, graph, '5')
 
 '''
 output
+
 ******** START **********************
 5
 3
