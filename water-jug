@@ -48,3 +48,52 @@ while ((ai!=af or bi!=bf)):
         bi=bi+ai;
         ai=0;
     print(ai,bi);
+
+'''
+Enter Jug A Capacity: 4
+Enter Jug B Capacity: 3
+Initially Water in Jug A: 0
+Initially Water in Jug B: 0
+Final State of Jug A: 2
+Final State of Jug B: 0
+List Of Operations You can Do:
+
+1.Fill Jug A Completely
+
+2.Fill Jug B Completely
+
+3.Empty Jug A Completely
+
+4.Empty Jug B Completely
+
+5.Pour From Jug A till Jug B filled Completely or A becomes empty
+
+6.Pour From Jug B till Jug A filled Completely or B becomes empty
+
+7.Pour all From Jug B to Jug A
+
+8.Pour all From Jug A to Jug B
+
+Enter the Operation: 1
+4 0
+Enter the Operation: 1
+4 0
+Enter the Operation: 2
+4 3
+Enter the Operation: 1
+4 3
+Enter the Operation: 3
+0 3
+Enter the Operation: 6
+3 0
+Enter the Operation: 2
+3 3
+Enter the Operation: 6
+4 2
+Enter the Operation: 3
+0 2
+Enter the Operation: 5
+0 2
+Enter the Operation: 6
+2 0
+'''
