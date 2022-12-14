@@ -1,0 +1,97 @@
+print("A* Implementation in Python:\n")
+
+
+def f(g, h, n):
+    return g[n] + h[n]
+
+
+
+def update(to_remove, to_add, m):
+    to_remove.remove(m)
+    to_add.append(m)
+
+
+def a_star_algo(cost, heuristic, start, goals):
+    path = []
+    pathSet = []
+
+
+    closed_list = []
+
+    open_list = [start]
+
+    path_len = {}
+    path_len[start] = 0
+
+
+    parent_node = {}
+    parent_node[start] = start
+
+    while len(open_list) > 0:
+
+        node = None
+        for n in open_list:
+            if node == None or f(path_len, heuristic, n) < f(path_len, heuristic, node):
+                node = n
+
+        if node == None:
+            break
+
+        if node in goals:
+            f_n = f(path_len, heuristic, node)
+            reconstruct = []
+
+            aux = node
+            while parent_node[aux] != aux:
+                reconstruct.append(aux)
+                aux = parent_node[aux]
+
+            reconstruct.append(start)
+            reconstruct.reverse()
+
+            pathSet.append((reconstruct, f_n))
+
+            update(open_list, closed_list, node)
+            continue
+
+        path_cost = cost[node]
+
+        for adj_node in range(0, len(path_cost)):
+            weight = path_cost[adj_node]
+
+            if weight > 0:
+                if adj_node not in open_list and adj_node not in closed_list:
+                    open_list.append(adj_node)
+                    parent_node[adj_node] = node
+                    path_len[adj_node] = path_len[node] + weight
+
+                else:
+                    if path_len[adj_node] > path_len[node] + weight:
+                        path_len[adj_node] = path_len[node] + weight
+                        parent_node[adj_node] = node
+
+                        if adj_node in closed_list:
+                            update(closed_list, open_list, adj_node)
+
+        update(open_list, closed_list, node)
+
+    if len(pathSet) > 0:
+        pathSet = sorted(pathSet, key=lambda x: x[1])
+        path = pathSet[0][0]
+
+    return path
+
+
+give_cost = [
+    [0, 1, 2.1],
+    [1, 0, 1],
+    [3.1, 1, 0]
+]
+start = 0
+give_goals = [2, 3]
+
+heuristic = [1, 2.1, 0]
+
+getPath = a_star_algo(give_cost, heuristic, start, give_goals)
+
+print(getPath)
