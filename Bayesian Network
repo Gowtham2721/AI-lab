@@ -8,7 +8,7 @@ probability distributions
 possible outcome of the preceding causal node(s).
 '''
 '''code'''
-pip install pomegranate #to install
+!pip install pomegranate #to install
 
 import math
 from pomegranate import *
